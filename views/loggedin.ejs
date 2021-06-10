@@ -5,15 +5,25 @@
   <div class="container">
     <i class="fas fa-key fa-6x"></i>
     <h1 class="display-3">You already logged in !</h1>
-    <p class="secret-text">You are going to be redirected in 3 seconds.</p>
+    <p id="paragraph" class="secret-text">You are going to be redirected in 4 seconds.</p>
     <hr>
   </div>
 </div>
 
 <script>
-  setTimeout(function () {
-     window.location = "/secrets";
-  }, 3000)
+  //setTimeout(function () {
+  //   window.location = "/secrets";
+  //}, 3000)
+  var interval = setInterval(myTimer, 1000);
+	let timer = 3;
+  function myTimer() {
+  document.getElementById("paragraph").innerHTML = "You are going to be redirected in "+timer+" seconds.";
+  console.log(timer);
+  timer = timer - 1;
+  if(timer < 0){
+    window.location = "/secrets";
+  }
+}
 </script>
 
 <%- include('partials/footer') %>
