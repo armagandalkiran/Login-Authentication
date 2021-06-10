@@ -48,7 +48,11 @@ app.get("/", function(req,res){
 })
 
 app.get("/login", function(req,res){
-  res.render("login");
+  if(req.isAuthenticated()){
+    res.render("loggedin");
+  }else{
+    res.render("login");
+  }
 })
 
 app.get("/register", function(req,res){
@@ -67,7 +71,6 @@ app.get("/logout",function(req,res){
   req.logout();
   res.redirect("/");
 })
-
 
 app.post("/register", function(req,res){
 
@@ -102,7 +105,6 @@ app.post("/login", function(req,res){
   })
 
 });
-
 
 app.listen(3000,function(){
   console.log("Server started on port 3000");

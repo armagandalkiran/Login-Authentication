@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <i class="fas fa-key fa-6x"></i>
+    <h1 class="display-3">You already logged in !</h1>
+    <p class="secret-text">You are going to be redirected in 3 seconds.</p>
+    <hr>
+  </div>
+</div>
+
+<script>
+  setTimeout(function () {
+     window.location = "/secrets";
+  }, 3000)
+</script>
+
+<%- include('partials/footer') %>
